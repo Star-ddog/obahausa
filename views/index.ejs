@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+    <title>TWE Express Integration tutorial</title>
+  </head>
+  <body>
+    <nav
+      id="nav"
+      class="flex justify-between items-start md:items-center mb-6 md:my-4 md:mx-12 border-b border-gray-200"
+    >
+      <!-- NAV HEADER -->
+      <div
+        class="flex basis-full md:basis-1/5 self-stretch items-center justify-between py-2 px-4"
+      >
+        <h1
+          class="leading-loose font-bold p-2 text-xl md:text-xl text-black border-dotted border-2 border-purple-400"
+        >
+          <a href="/"
+            >OBAHAUSA<span class="px-6 text-purple-400 text-3xl -0.5">.</span></a
+          >
+        </h1>
+        <svg
+          id="open-button"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10 md:h-7 md:w-7 md:mr-2 text-black cursor-pointer p-1.5 md:p-1 md:hidden"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          onclick="toggleNav()"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+
+        <svg
+          id="close-button"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-10 h-10 md:h-7 md:w-7 md:mr-2 text-black hidden cursor-pointer p-1.5 md:p-1 md:hidden"
+          onclick="toggleNav()"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
+
+      <!-- NAV LIST -->
+      <div id="nav-list" class="md:mx-auto px-5 md:p-3 hidden md:block">
+        <ul
+          id="nav-ul"
+          class="list-none font-medium text-black flex space-y-2 md:space-y-0 md:space-x-2 md:text-sm"
+        >
+          <li class="transition-all duration-150 p-2">
+            <a href="#about"></a>
+          </li>
+          <li class="transition-all duration-150 p-2">
+            <a href="#history">About</a>
+          </li>
+          <li class="transition-all duration-150 p-2">
+            <a href="#history">Photo Gallery</a>
+          </li>
+          <li class="transition-all duration-150 p-2">
+            <a href="#history">Obahausa Members</a>
+          </li>
+          <li class="transition-all duration-150 p-2">
+            <a href="#history">Communities</a>
+          </li>
+          <li class="transition-all duration-150 p-2">
+            <a href="#client-reviews">Client Reviews</a>
+          </li>
+          <li class="block md:hidden transition-all duration-150 p-2">
+            <a
+              class="flex mr-4 text-sm font-semibold items-center w-max border border-gray-800 text-gray-800 px-3 py-2 transition-all hover:text-gray-800"
+              href="#contact"
+              >Register
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4 ml-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.326 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- REGISTER BUTTON -->
+      <div class="hidden md:block">
+        <a
+          class="flex mr-4 text-sm font-semibold items-center w-max border border-gray-800 text-gray-800 px-3 py-2 transition-all hover:text-gray-800"
+          href="#contact"
+          >Register
+          
+        </a>
+      </div>
+    </nav>
+
+ <!-- Hero Section -->
+ <section class="hero" >
+  <div class="container flex flex-col-reverse mx-auto items-center px-6 mt-10 md:mt-20 md:space-y-0 md:space-x-6 md:flex-row">
+
+      <!-- left slide -->
+      <div class="flex flex-col mt-6 space-y-6 md:w-1/2">
+          <h2 class=" max-w-md text-4xl font-bold text-center md:text-4xl md:text-left ">
+            The Ubaha Village …
+          </h2>
+          <p class="text-center leading-6  font-normal text-base  text-gray-500 md:text-sm md:leading-6 md:text-left">
+            Ubaha is a fairly small village located within walking distance of Okigwe Township. Because of its relatively small size, Ubaha has the unique characteristic that everybody in the village knows everybody else.
+            Modern day Ubaha village is sandwiched between two major highways, old Owerri Road on one side and the Enugu-Port Harcourt express way to the other side. Ubaha is readily accessible from various locations. From Okigwe town, a 15-minute walk down Ubaha Road or Umuchima Road takes you to the village. From the Enugu-Port-Harcourt expressway, near the Federal Govt college, Okigwe, a short walk brings you to Umunabia, Ubaha.
+            As a result of its very close proximity to Okigwe township, several employees of businesses in and around Okigwe town, including employees at nearby Federal Govt Secondary School, Abia State University, Uturu, etc, find Ubaha village a much more quiet and conducive place to live and raise their families. One very serious and unintended consequence of having so many non-indigenes living among Ubaha villagers is that Ubaha village is rapidly losing its character as a homogenous village, bound together by a shared heritage.
+          </p>
+  
+      </div>
+
+      <!-- Image row... -->
+      <div class="md:w-1/2">
+          <img src="images/about.png" alt="">
+      </div>
+  </div>
+
+</section>
+
+ <!-- ABOUT -->
+ <section id="about" class="py-10 px-8 md:m-10 md:w-3/4 md:mx-auto md:my-5">
+  <h1
+    class="flex items-center relative font-bold text-black text-4xl leading-normal tracking-tight md:text-4xl w-full md:w-4/5"
+  >
+  Governance
+    <span class="text-3xl font-bold text-purple-400 pl-0.5">.</span>
+  </h1>
+
+  <div class="text-gray-500 font-normal text-base md:text-sm">
+    <p class="font-normal my-4 leading-6 md:leading-6">
+      Ubaha village is made up of four clans, Umurido, Umuegem, Umuchima and Umunabia. The four clans are said to be the descendants of the four sons of Ubaha, the father and original founder of Ubaha village. Since Umurido is the first son of Ubaha, following Igbo tradition, Umurido clan has therefore remained the traditional seat of Ubaha governance. In keeping with this tradition, the Eze or Chief of Ubaha village is traditionally selected from Umurido clan.
+
+      The current Eze (Chief) of Ubaha is HRH Eze Ugochukwu the Akajiofor of Ama Asaa. In Ubaha as in most Igbo communities, the Eze governs with a select council of elders known as Ndi Nze. Decision making is usually by consensus of opinion among the Eze and his council of elders.
+      
+      In Ubaha, every family has a recognized family head. A family head maintains an Ofo. The Ofo is a symbol of authority the family head has over members of his family. It is his staff of office. A holder of Ofo must be upright and a person of high integrity and morality. He must be willing to devote his services to the wellbeing of every member of his family in a fair and just manner. The Ofo is passed from one generation to another within the family. It is believed that if an Ofo holder strays from his oath, the Ofo has the ability to mete out serious punishment to such a person. </p>
+  </div>
+</section>
+ 
+
+<!-- Hero Section -->
+<section class="hero" >
+  <div class="container flex flex-col-reverse mx-auto items-center px-6 mt-10 space-y-0 md:mt-20 md:space-y-0 md:space-x-6 md:flex-row md:max-w-6xl">
+
+     <!-- Image row... -->
+     <div class="mt-6 md:mt-0 md:w-1/2">
+      <img src="images/culture.png" class="rounded-md">
+  </div>
+
+      <!-- Right slide -->
+      <div class="flex flex-col space-y-12 mb-32 md:w-1/2">
+          <h2 class=" max-w-md text-4xl font-bold text-center md:text-4xl md:text-left ">
+        Okigwe Town
+          </h2>
+          <!-- <div class="text-gray-800 font-normal text-base md:text-sm">
+            <p class="font-normal my-4"> -->
+          <div>
+            <p class="text-center font-normal text-base leading-6 md:leading-6 text-gray-500 md:text-sm md:text-left">
+              Ubaha is one of several villages that make up Okigwe town. Compared to the other villages, Ubaha has the added advantage that most of Okigwe town is located within her ancestral land. This gives the chief of Ubaha jurisdiction over residents of Okigwe town.
+              During the colonial era and its immediate aftermath, Okigwe Province was a very important seat of government and trade route, mainly because of its strategic location as a transit point between Port Harcourt and Enugu. In recent times, however, Okigwe appears to have lost most of its appeal and luster as many of its constituent parts have been slashed off and assigned to other neighboring towns and communities. Mainly because of their proximity to Okigwe town, Indigenes of Ubaha village have this aura of superiority when compared to indigenes of other neighboring villages that are further removed from Okigwe town. Ubaha indigenes look at those villages as ‘village’ people and themselves as more enlightened ‘town’ people.
+              One fact that appears lost or suppressed in African colonial history is the fact that just like other European powers, Germany colonized several African countries including large portions of Nigeria and Ghana. The German colonial endeavors ended during the first weeks of the First World War when other European powers, sensing Germany’s weaken position, seized their African colonies, bringing to an end the colonial ambitions of the Germans. During their colonial rule, and as a result of the strategic location and topography of Okigwe Town, a large contingent of German soldiers were stationed at Okigwe town. If you have ever wondered why Okigwe Town is often referred to as ‘baraki’ or barracks or why the hill overlooking the old Okigwe motor park is referred to as German Hill. This is why. 
+            </p>
+          </div>
+
+      </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-10 px-8 md:m-10 md:w-3/4 md:mx-auto md:my-5">
+  <h1
+    class="flex items-center relative font-bold text-black text-4xl leading-normal tracking-tight md:text-4xl w-full md:w-4/5"
+  >
+  Culture
+    <span class="text-3xl font-bold text-purple-400 pl-1">...</span>
+  </h1>
+
+  <div class="text-gray-500 font-normal text-base md:text-sm">
+    <p class="font-normal my-4 leading-6 md:leading-6">
+      Like many other Igbo communities, Ubaha is a community rich in cultural heritage Because of its proximity to Okigwe town, Ubaha was one of the first villages to embrace Christianity and western-style education. The advent of Christianity has decimated many of Ubaha’s traditional customs and beliefs. The traditional Ubaha community was mostly agrarian. In this traditional society, a man’s worth was judged by the size of his yam barn. The most important surviving traditional festival in Ubaha village today is Iri-Ji or New Yam festival. Iri-Ji is a celebration of the harvesting of New Yam. The New Yam festival is celebrated with traditional dances and other festivities. The head of every family performs certain customary and traditional rituals which involves blessing the new yam and declaring it fit for all family members to consume. There are four days in Igbo Calendar, Eke, Orie,Afo and Nkwo. The New Yam festival is celebrated on the last EKE in August of every year.           
+    </p>
+  </div>
+</section>
+
+<!-- Testimonial section.... -->
+<section id="testimonial">
+  <div class="container px-5 mx-auto text-center md:max-w-6xl">
+          <!-- Testimonial continer -->
+      <div class="flex flex-col space-y-16 mt-24 md:flex-row md:space-y-0 md:space-x-6">
+         
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-2xl bg-veryLightGray md:w-1/3 ">
+              <img src="images/edu.png" class="w-28 h-28 -mt-20 rounded-full" alt="" />
+              <h5 class="text-lg font-bold">Education</h5>
+              <p class="text-sm text-darkGrayishBlue">
+                Western style education is highly treasured by members of Ubaha village. Among it’s neighboring villages, Ubaha was one of the first to recognize the importance and benefits of Western Education, An Ubaha father will sacrifice everything they have in order to send their children to school. In today’s Ubaha, you will be hard-pressed to find anybody under 25 years old that does not have at least a High School education. That in its self, is very impressive.
+              </p>
+          </div>
+
+          <div class="flex flex-col mt-10 items-center p-6 space-y-6 rounded-2xl bg-veryLightGray md:w-1/3 ">
+              <img src="images/religion.png" class="w-28 h-28 -mt-20 rounded-full"  alt="" />
+              <h5 class="text-lg font-bold">Reigion</h5>
+              <p class="text-sm text-darkGrayishBlue">
+                Ubaha is a Christian community. The first Christian denomination to come to Ubaha was the Methodist Church. For several years after that, Ubaha Methodist Church was the de-facto sect for the entire community. In recent years however, several Christian sects have found their way into the village and have continued to gain significant followership among the villagers. However, and not withstanding inroads by these other sects, the Methodist Church still remains the preferred sect for most of the villagers.
+              </p>
+          </div>
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-2xl bg-veryLightGray md:w-1/3 ">
+              <img src="images/marriages.png" class="w-28 h-28 -mt-20 rounded-full"  alt="" />
+              <h5 class="text-lg font-bold">Marriages</h5>
+              <p class="text-sm text-darkGrayishBlue">
+                Marriages are allowed between members of Ubaha village so long as there is no traceable blood relationship between the two families. Ubaha custom forbids any form of marriage among members with any form of blood relationship. Ubaha does not have any statute or custom that prohibits polygamy. However, as many Ubaha indigenes get educated and enlightened, the practice of polygamy is becoming less common within the village.
+              </p>
+          </div>
+
+      </div>
+
+      <!-- <div class="my-16">
+          <a
+      href="#"
+      class="p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
+      >Get Started</a
+    >
+      </div> -->
+  </div>
+</section>
+
+ <!-- CONTACT SECTION -->
+ <section
+ id="contact"
+ class="py-10 px-8 md:m-10 md:mt-10 md:w-3/4 md:mx-auto md:my-5"
+>
+ <h1
+   class="flex items-center relative font-bold text-black text-4xl leading-normal tracking-tight md:text-4xl w-full md:w-4/5"
+ >
+   Register Yourself
+   <span class="text-3xl font-bold text-purple-400 pl-0.5">.</span>
+ </h1>
+ <div class="text-gray-800 text-base md:text-sm">
+   <p class="font-normal my-4">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur iure 
+    excepturi optio ex fuga quam quis nam labore quisquam? Saepe consectetur 
+    perspiciatis explicabo molestiae asperiores pariatur voluptatem quia nihil
+     dolorum!
+   </p>
+ </div>
+
+ <!-- CONTACT FORM -->
+ <section class="my-5 md:my-10 grid grid-cols-12">
+   <div
+     id="form-container"
+     class="col-span-12 md:mb-5 md:col-start-1 md:col-end-10"
+   >
+     <form class="form" action="#" method="POST">
+       <div
+         id="fullNameDiv"
+         class="md:border border-dotted border-gray-400 overflow-hidden rounded-md"
+       >
+         <div class="py-5 sm:p-4">
+           <div class="grid grid-cols-6 gap-6">
+             <div class="col-span-6 sm:col-span-3">
+               <label
+                 for="full-name"
+                 class="block text-sm font-medium text-gray-700"
+                 >Full name</label
+               >
+              
+                <input
+                type="text"
+                name="fullName"
+                id="full-name"
+                required
+                autocomplete="full-name"
+                class="mt-1 border-2 focus:ring-purple-400 focus:border-purple-300 block py-1 w-full sm:text-sm border-gray-300 rounded-md"
+              />
+          
+             </div>
+
+             <div class="col-span-6 sm:col-span-3">
+               <label
+                 for="email-address"
+                 class="block text-sm font-medium text-gray-700"
+                 >Email address</label
+               >
+               <input
+                 type="email"
+                 name="email"
+                 id="email-address"
+                 required
+                 autocomplete="email"
+                 class="mt-1 border-2 py-1 focus:ring-purple-400 focus:border-purple-300 block w-full sm:text-sm border-gray-300 rounded-md"
+               />
+             </div>
+
+             <div class="col-span-6 sm:col-span-3">
+               <label
+                 for="phone"
+                 class="block text-sm font-medium text-gray-700"
+                 >Phone Number (+234) </label
+               >
+               <input
+                 type="number"
+                 name="phone"
+                 id="phone"
+                 required
+                 class="mt-1 border-2 py-1 focus:ring-purple-400 focus:border-purple-300 block w-full sm:text-sm border-gray-300 rounded-md"
+               />
+             </div>
+
+             <div class="col-span-6 sm:col-span-3">
+               <label
+                 for="subject"
+                 class="block text-sm font-medium text-gray-700"
+                 >Occupation</label
+               >
+               <input
+                 type="text"
+                 name="subject"
+                 id="subject"
+                 required
+                 autocomplete="subject"
+                 class="mt- border-2 py-1 focus:ring-purple-400 focus:border-purple-300 block w-full sm:text-sm border-gray-300 rounded-md"
+               />
+             </div>
+
+            
+             <!-- <div class="col-span-6">
+               <label
+                 for="message"
+                 class="block text-sm font-medium text-gray-700"
+                 >Message (Optional)</label
+               >
+               <textarea
+                 class="mt-1 focus:ring-purple-400 focus:border-purple-300 block w-full sm:text-sm border-gray-300 rounded-md"
+                 name="message"
+                 id="message"
+                 cols="30"
+                 rows="10"
+                 required
+               ></textarea>
+             </div> -->
+           </div>
+           <p
+             class="text-gray-700 text-sm md:text-xs p-4 border border-gray-300 rounded-md mt-4"
+           >
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur aspernatur ipsum, 
+             impedit dolorum possimus tempora vitae harum illo quisquam aperiam distinctio.
+           </p>
+         </div>
+         <div class="md:px-4 md:py-3 bg-gray-50/20 text-right sm:px-6">
+           <button
+             id="submit-btn"
+             type="submit"
+             class="inline-flex w-full md:w-max text-sm font-medium justify-center border border-transparent bg-purple-700 text-white md:px-4 md:py-2 px-5 py-3 hover:text-gray-200 rounded-md"
+           >
+             Send Message
+           </button>
+         </div>
+       </div>
+     </form>
+   </div>
+ </section>
+</section>
+
+ <!--  FOOTER -->
+ <footer
+ class="bg-purple-700 py-5 px-10 flex flex-col items-center justify-center"
+>
+ <div class="text-gray-200 text-center">
+   <p class="font-normal">
+     2024 &copy; CopyrightMary Obahausa. All Rights Reserved
+   </p>
+ </div>
+</footer>
+
+    <script
+    src="/tw-elements/dist/js/tw-elements.umd.min.js"
+    type="text/javascript"></script>
+    <script>
+        const nav = document.getElementById("nav");
+const navList = document.getElementById("nav-list");
+const navUL = document.getElementById("nav-ul");
+let isNavOpen = false;
+const openButton = document.getElementById("open-button");
+const closeButton = document.getElementById("close-button");
+
+function toggleNav() {
+  nav.classList.toggle("flex-col");
+  navList.classList.toggle("hidden");
+  navList.classList.toggle("flex");
+  navList.classList.toggle("animate-slide");
+  navUL.classList.toggle("flex-col");
+  isNavOpen = !isNavOpen;
+
+  openButton.classList.toggle("hidden");
+  openButton.classList.toggle("animate-opacity");
+  closeButton.classList.toggle("hidden");
+  closeButton.classList.toggle("animate-opacity");
+}
+
+    </script>
+  </body>
+</html>
